@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-100 text-slate-800 antialiased;
+}
+
+/* Print styles: only the invoice is printed */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #invoice-preview,
+  #invoice-preview * {
+    visibility: visible;
+  }
+  #invoice-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+}
+
+/* Custom scrollbar for the form column */
+.nice-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.nice-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full;
+}
